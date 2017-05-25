@@ -1,0 +1,38 @@
+{
+  "name": "drupal-ui-component",
+  "version": "1.0.0",
+  "description": "Drupal module with the basis for a react ui component provider",
+  "main": "index.js",
+  "scripts": {
+    "start": "./node_modules/.bin/poi",
+    "build": "rm -fr dist/* && ./node_modules/.bin/poi build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joanrufe/drupal-ui-component.git"
+  },
+  "keywords": [
+    "drupal",
+    "module",
+    "react"
+  ],
+  "author": "joanrufe",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joanrufe/drupal-ui-component/issues"
+  },
+  "homepage": "https://github.com/joanrufe/drupal-ui-component#readme",
+  "dependencies": {
+    "moment": "^2.20.1",
+    "react": "^16.2.0",
+    "react-datepicker": "^0.64.0",
+    "react-dom": "^16.2.0"
+  },
+  "devDependencies": {
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react-app": "^3.1.0",
+    "poi": "^9.6.3",
+    "poi-preset-react": "^9.2.1"
+  }
+}

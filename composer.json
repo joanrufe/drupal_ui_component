@@ -1,0 +1,15 @@
+{
+  "name": "drupal/drupal-ui-component",
+  "type": "drupal-module",
+  "description": "Getting react to drupal",
+  "keywords": ["Drupal", "React"],
+  "license": "GPL-2.0+",
+  "homepage": "https://github.com/joanrufe/drupal-ui-component",
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "https://github.com/joanrufe/drupal-ui-component/issues",
+    "source": "https://github.com/joanrufe/drupal-ui-component.git"
+  },
+  "require": { }
+}
+P

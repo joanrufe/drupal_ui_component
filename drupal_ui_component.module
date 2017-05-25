@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Contains drupal_ui_component.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function drupal_ui_component_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the drupal_react_starter module.
+    case 'help.page.react_starter':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Getting react to drupal') . '</p>';
+      return $output;
+
+    default:
+  }
+}

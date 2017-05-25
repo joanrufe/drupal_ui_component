@@ -1,0 +1,8 @@
+name: 'Drupal Ui Component'
+type: module
+description: 'React Component ecosystem'
+core: 8.x
+package: Custom
+mtime: 1493459109
+version: null
+php: 5.5.9
