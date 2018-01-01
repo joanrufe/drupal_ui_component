@@ -18,3 +18,5 @@ This project is using [poi](https://poi.js.org) to facilitate webpack transpilat
 - **dist** Contain build ready for production
 - **poi.config.js** Contain poi configuration (see [docs](https://poi.js.org/#/home))
 - **drupal_ui_component.libraries.yml** Here you can define libraries
+
+Drupal is connected to the component using whaterwheel.js. In [api.js](./js-src/datepicker/api.js)) file you can change credentials 

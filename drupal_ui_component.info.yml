@@ -1,6 +1,6 @@
 name: 'Drupal Ui Component'
 type: module
-description: 'React Component ecosystem'
+description: 'React UI components library'
 core: 8.x
 package: Custom
 mtime: 1493459109
