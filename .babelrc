@@ -1,9 +1,15 @@
 {
   "presets": [
-    "es2015",
-    "react-app"
+    [
+      "env",
+      {
+        "modules": false
+      }
+    ],
+    "react"
   ],
   "plugins": [
-    "react-require"
+    "transform-object-rest-spread",
+    "react-hot-loader/babel"
   ]
 }

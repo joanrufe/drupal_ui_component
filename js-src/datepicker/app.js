@@ -10,7 +10,8 @@ class App extends React.Component {
     super(props)
     this.state = {
       startDate: moment(),
-      datesWithUsers: []
+      datesWithUsers: [],
+      selected: null
     }
     this.handleChange = this.handleChange.bind(this)
   }
@@ -40,6 +41,13 @@ class App extends React.Component {
     return this.state.datesWithUsers.includes(moment(day).format('YYYYMMDD')) ?
       true : false
   }
+
+  _getUsersByDay(day){
+    console.log(api)
+    api.fetchUsers()
+    .then(users => users.filter(user => console.log(moment.unix(user.attributes.created))))
+    
+  }
   
 
   render() {
@@ -49,9 +57,13 @@ class App extends React.Component {
         selected={this.state.startDate}
         onChange={this.handleChange}
         dayClassName={day => this._dayHaveUsers(day)? 'with-users': false}
+        onSelect={date => this._getUsersByDay(date)}
+        // children={this.state.selected}
       />
     )
   }
 }
+
+// const UserListItem = ()
 
 export default App

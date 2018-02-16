@@ -4,11 +4,8 @@ import ReactDOM from 'react-dom'
 import { AppContainer } from 'react-hot-loader'
 import App from './app'
 
-let block_id = "app" // Default poijs id
-
-if (typeof drupalSettings !== 'undefined') {
-  block_id = drupalSettings.block_id
-} 
+const block_id = (typeof drupalSettings !== 'undefined' )? 
+  drupalSettings.block_id : 'app';
 
 const render = (Component, elemId) => {
   ReactDOM.render(
