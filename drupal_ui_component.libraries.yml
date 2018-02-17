@@ -3,9 +3,8 @@ datepicker:
   css:
     theme:
       dist/datepicker.css: {}
-      dist/vendor.css: {}
   js:
-    dist/common.js: {}
+    dist/manifest.js: {}
     dist/vendor.js: {}
     dist/datepicker.js: {}
   dependencies:

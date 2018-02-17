@@ -4,6 +4,7 @@ import moment from 'moment'
 import 'react-datepicker/dist/react-datepicker.css'
 import api from './api'
 import './datepicker.scss'
+import {t} from '../utils'
 
 class App extends React.Component {
   constructor(props) {
@@ -11,24 +12,25 @@ class App extends React.Component {
     this.state = {
       startDate: moment(),
       datesWithUsers: [],
-      selected: null
+      selected: null,
+      usersInCurrentDay: []
     }
     this.handleChange = this.handleChange.bind(this)
   }
 
   componentDidMount() {
     api.fetchUsers()
-    .then(res => {
-      res.map(user => moment.unix(user.attributes.created).format('YYYYMMDD'))
-      .map(date => {
-        return !this.state.datesWithUsers.includes(date) && this.setState({
-          datesWithUsers: [
-            ...this.state.datesWithUsers,
-            date
-          ]
-        })
+      .then(res => {
+        res.map(user => moment.unix(user.attributes.created).format('YYYYMMDD'))
+          .map(date => {
+            return !this.state.datesWithUsers.includes(date) && this.setState({
+              datesWithUsers: [
+                ...this.state.datesWithUsers,
+                date
+              ]
+            })
+          })
       })
-    })
   }
 
   handleChange(date) {
@@ -42,28 +44,54 @@ class App extends React.Component {
       true : false
   }
 
-  _getUsersByDay(day){
-    console.log(api)
+  _getUsersByDay(day) {
     api.fetchUsers()
-    .then(users => users.filter(user => console.log(moment.unix(user.attributes.created))))
-    
+      .then(users => {
+        return users.filter(user => {
+          const created = moment.unix(user.attributes.created)
+          return created.format('YYYYMMDD') === moment(day).format('YYYYMMDD')
+        })
+      })
+      .then(filtered => this.setState({
+        ...this.state,
+        usersInCurrentDay: [...filtered]
+      }))
   }
-  
 
   render() {
     return (
-      <DatePicker
-        inline
-        selected={this.state.startDate}
-        onChange={this.handleChange}
-        dayClassName={day => this._dayHaveUsers(day)? 'with-users': false}
-        onSelect={date => this._getUsersByDay(date)}
-        // children={this.state.selected}
-      />
+      <div className="DatePickerComponent">
+        <DatePicker
+          inline
+          selected={this.state.startDate}
+          onChange={this.handleChange}
+          dayClassName={day => this._dayHaveUsers(day) ? 'with-users' : false}
+          onSelect={date => this._getUsersByDay(date)}
+        />
+        {this.state.usersInCurrentDay.length > 0 && (
+          <UserList users={this.state.usersInCurrentDay} />
+        )}
+      </div>
     )
   }
 }
 
-// const UserListItem = ()
+const UserList = ({ users }) => {
+  return (
+    <ul className="UserList">
+      <h3> {t('Users this day:')} </h3>
+      {
+        users.map((user, index) => (
+          <div className="UserItem" key={index}>
+              <a href={`/user/${user.attributes.uid}`}>
+                {user.attributes.name}
+              </a>
+              <img src={api.HOST+'/'+user.attributes.user_picture.url}/>
+          </div>
+        ))
+      }
+    </ul>
+  )
+}
 
 export default App

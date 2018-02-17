@@ -10,11 +10,11 @@ module.exports = webpackMerge(commonConfig, {
   devtool: 'cheap-module-source-map',
   output: {
     path: path.join(basePath, 'dist'),
-    filename: '[chunkhash].[name].js',
+    filename: '[name].js',
   },
   plugins: [
     new ExtractTextPlugin({
-      filename: '[chunkhash].[name].css',
+      filename: '[name].css',
       disable: false,
       allChunks: true,
     }),

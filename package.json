@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/joanrufe/drupal-ui-component#readme",
   "dependencies": {
+    "lodash": "^4.17.5",
     "moment": "^2.20.1",
     "react": "^16.2.0",
     "react-datepicker": "^0.64.0",

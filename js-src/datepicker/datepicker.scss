@@ -1,3 +1,4 @@
+// react-datepicker component style
 .react-datepicker__day{
     width: 35px;
     height: 35px;
@@ -23,5 +24,42 @@
     // Style from custom datepicker component
     &.with-users {
         color: red;
+    }
+}
+
+// Own component
+.DatePickerComponent{
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    ul.UserList{
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        h3{
+            text-align: center;
+            margin: 0.3em;
+        }
+        .UserItem{
+            display: flex;
+            flex-flow: column wrap;
+            align-items: center;
+            a{
+                font-size: 1.4em;
+                text-decoration: none;
+                text-transform: capitalize;
+                &:hover{
+                    text-decoration: underline;
+                }
+                margin-bottom: 0.5em; 
+            }
+            img{
+                display: block;
+                max-width:230px;
+                max-height:130px;
+                width: auto;
+                height: auto;
+            }
+        }
     }
 }
