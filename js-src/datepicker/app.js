@@ -76,7 +76,7 @@ class App extends React.Component {
   }
 }
 
-const UserList = ({ users }) => {
+const UserList = ({ users = [] }) => {
   return (
     <ul className="UserList">
       <h3> {t('Users this day:')} </h3>

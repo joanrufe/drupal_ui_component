@@ -3,6 +3,7 @@ var commonConfig = require('./base.webpack.config.js');
 var path = require('path');
 var webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 var basePath = __dirname;
 
@@ -31,6 +32,11 @@ module.exports = webpackMerge.strategy({
     new webpack.HotModuleReplacementPlugin(),
     new ExtractTextPlugin({
       disable: true,
+    }),
+    // Template for development
+    new HtmlWebpackPlugin({
+      template: 'index.html', //Name of template in ./js-src
+      hash: true,
     }),
   ],
 });

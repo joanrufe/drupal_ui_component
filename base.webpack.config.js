@@ -1,5 +1,4 @@
 var path = require('path');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
 var webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
@@ -13,13 +12,11 @@ module.exports = {
   entry: {
     // app: './index.jsx',
     datepicker: './datepicker/index.js',
+    'datepicker.jquery.plugin': './datepicker/datepicker.jquery.plugin.js',
     vendor: [
       'react',
       'react-dom',
     ],
-    // vendorStyles: [
-      // '../node_modules/bootstrap/dist/css/bootstrap.css',
-    // ],
   },
   module: {
     rules: [
@@ -77,12 +74,6 @@ module.exports = {
     ],
   },
   plugins: [
-    //Generate index.html in /dist => https://github.com/ampedandwired/html-webpack-plugin
-    new HtmlWebpackPlugin({
-      filename: 'index.html', //Name of file in ./dist/
-      template: 'index.html', //Name of template in ./src
-      hash: true,
-    }),
     new webpack.optimize.CommonsChunkPlugin({
       names: ['vendor', 'manifest'],
     }),

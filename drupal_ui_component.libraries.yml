@@ -3,6 +3,7 @@ datepicker:
   css:
     theme:
       dist/datepicker.css: {}
+      dist/vendor.css: {}
   js:
     dist/manifest.js: {}
     dist/vendor.js: {}

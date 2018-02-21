@@ -1,16 +1,16 @@
 import Waterwheel from 'waterwheel'
-import _ from 'lodash'
+import {findIndex} from 'lodash'
 
-const baseUrl = 'http://127.0.0.1:8088'
+const baseUrl = 'http://127.0.0.1:8088' // @TODO: process.env.HOST ?
 
 const waterwheel = new Waterwheel({
   base: baseUrl,
   oauth: {
     grant_type: 'password',
-    client_id: '07d7a37a-57d9-4c3d-9142-7438b5d52657', // Put your own credentials
-    client_secret: '1234567890', // Put your own credentials
-    username: 'admin', // Put your own credentials
-    password: 'admin' // Put your own credentials
+    client_id: '07d7a37a-57d9-4c3d-9142-7438b5d52657', // @TODO: move to process.env
+    client_secret: '1234567890', // @TODO: move to process.env
+    username: 'admin', // @TODO: move to process.env
+    password: 'admin' // @TODO: move to process.env
   }
 })
 
@@ -26,7 +26,7 @@ function mergeData(res, fieldName) {
                 ...attributes,
                 id
             }))
-            const index = _.findIndex(reducedData, { 
+            const index = findIndex(reducedData, {
                 id: idData.id
             })
             item.attributes[fieldName] = reducedData[index]
