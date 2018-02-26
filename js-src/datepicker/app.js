@@ -21,7 +21,7 @@ class App extends React.Component {
   componentDidMount() {
     api.fetchUsers()
       .then(res => {
-        res.map(user => moment.unix(user.attributes.created).format('YYYYMMDD'))
+        res.map(user => moment.unix(user.created).format('YYYYMMDD'))
           .map(date => {
             return !this.state.datesWithUsers.includes(date) && this.setState({
               datesWithUsers: [
@@ -48,8 +48,7 @@ class App extends React.Component {
     api.fetchUsers()
       .then(users => {
         return users.filter(user => {
-          const created = moment.unix(user.attributes.created)
-          return created.format('YYYYMMDD') === moment(day).format('YYYYMMDD')
+          return moment.unix(user.created).format('YYYYMMDD') === moment(day).format('YYYYMMDD')
         })
       })
       .then(filtered => this.setState({
@@ -83,10 +82,10 @@ const UserList = ({ users = [] }) => {
       {
         users.map((user, index) => (
           <div className="UserItem" key={index}>
-              <a href={`/user/${user.attributes.uid}`}>
-                {user.attributes.name}
+              <a href={`/user/${user.uid}`}>
+                {user.name}
               </a>
-              <img src={api.HOST+'/'+user.attributes.user_picture.url}/>
+              <img src={user.avatar}/>
           </div>
         ))
       }

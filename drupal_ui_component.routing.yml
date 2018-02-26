@@ -1,0 +1,8 @@
+
+drupal_ui_component.user_api_controller_get_users_with_photo:
+  path: '/api/users_with_photo'
+  defaults:
+    _controller: '\Drupal\drupal_ui_component\Controller\UserApiController::get_users_with_photo'
+    _title: 'get_users_with_photo'
+  requirements:
+    _permission: 'access content'
