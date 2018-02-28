@@ -4,9 +4,9 @@
   "description": "Drupal module with the basis for a react ui component provider",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --config=dev.webpack.config.js",
-    "build": "rimraf dist && webpack --config=dev.webpack.config.js",
-    "build:prod": "rimraf dist && webpack -p --config=prod.webpack.config.js"
+    "start": "./node_modules/.bin/webpack-dev-server --config=dev.webpack.config.js",
+    "build": "rimraf dist && ./node_modules/.bin/webpack --config=dev.webpack.config.js",
+    "build:prod": "rimraf dist && ./node_modules/.bin/webpack -p --config=prod.webpack.config.js"
   },
   "repository": {
     "type": "git",
@@ -24,7 +24,6 @@
   },
   "homepage": "https://github.com/joanrufe/drupal-ui-component#readme",
   "dependencies": {
-    "lodash": "^4.17.5",
     "moment": "^2.20.1",
     "react": "^16.2.0",
     "react-datepicker": "^0.64.0",
